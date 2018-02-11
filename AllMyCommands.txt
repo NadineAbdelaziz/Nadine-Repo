@@ -663,4 +663,981 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
 $
 
+Salma@Salma-PC MINGW64 ~
+$ cd ~/Desktop/
+
+Salma@Salma-PC MINGW64 ~/Desktop
+$ cd Nadine-Repo
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master|MERGING)
+$ git fetch origin master:tmp
+From https://github.com/NadineAbdelaziz/Nadine-Repo
+   6c1325f..cd7d5a8  master     -> tmp
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master|MERGING)
+$ git rebase tmp
+Cannot rebase: Your index contains uncommitted changes.
+Please commit or stash them.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master|MERGING)
+$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 4 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+        modified:   AllMyCommands.txt
+        deleted:    ~$README.md
+        deleted:    ~$irdfile.md
+
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master|MERGING)
+$ git commit -m "I will delete the second file from the github"
+[master 75a0869] I will delete the second file from the github
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 528 bytes | 264.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/NadineAbdelaziz/Nadine-Repo.git
+   cd7d5a8..75a0869  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git checkout Secondfile.md
+error: pathspec 'Secondfile.md' did not match any file(s) known to git.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git log
+commit 75a08699fbee64ae9406f6ff495ba7261e4d000b (HEAD -> master, origin/master, origin/HEAD)
+Merge: 987e2e9 cd7d5a8
+Author: NadineAbdelaziz <nadine.abdelaziz@student.guc.edu.eg>
+Date:   Sun Feb 11 15:53:10 2018 +0200
+
+    I will delete the second file from the github
+
+commit 987e2e934c77b20bb133977b3fd368c5d056a491
+Author: NadineAbdelaziz <nadine.abdelaziz@student.guc.edu.eg>
+Date:   Sun Feb 11 15:42:47 2018 +0200
+
+    I deleted the second file which contains the section 3.1 Git Branching
+
+commit cd7d5a8568c67d9973b71dc71c522657b138ec92 (tmp)
+Author: NadineAbdelaziz <36333744+NadineAbdelaziz@users.noreply.github.com>
+Date:   Sun Feb 11 15:31:59 2018 +0200
+
+    Update AllMyCommands.txt
+
+    I added new commands to AllMyCommands file
+
+commit 716df53802289400aa7ab0e1a0de104f23104c2f
+:
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+
+Salma@Salma-PC MINGW64 ~
+$ cd ~/Desktop/
+
+Salma@Salma-PC MINGW64 ~/Desktop
+$ cd Nadine-Repo
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ touch Secondfile.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ ls
+AllMyCommands.txt  Firstfile.md  README.md  Secondfile.md  Thirdfile.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Secondfile.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git add.Secondfile.md
+git: 'add.Secondfile.md' is not a git command. See 'git --help'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git add.Secondfile.md
+git: 'add.Secondfile.md' is not a git command. See 'git --help'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git add Secondfile.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git statua
+git: 'statua' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   Secondfile.md
+
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u Secondfile.md
+fatal: Invalid gitfile format: Secondfile.md
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git fetch origin master
+From https://github.com/NadineAbdelaziz/Nadine-Repo
+ * branch            master     -> FETCH_HEAD
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git merge origin master
+Already up to date.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git fetch origin master:tmp
+From https://github.com/NadineAbdelaziz/Nadine-Repo
+   cd7d5a8..75a0869  master     -> tmp
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git rebase tmp
+Cannot rebase: Your index contains uncommitted changes.
+Please commit or stash them.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   Secondfile.md
+
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git add Secondfile.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   Secondfile.md
+
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ touch Secondfile.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git add Secondfile.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   Secondfile.md
+
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push origin master
+Everything up-to-date
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git fetch origin master
+From https://github.com/NadineAbdelaziz/Nadine-Repo
+ * branch            master     -> FETCH_HEAD
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git merge origin master
+Already up to date.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git fetch origin master:tmp
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git rebase tmp
+Cannot rebase: Your index contains uncommitted changes.
+Please commit or stash them.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   Secondfile.md
+
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git commit -m " I added the second file after deleting it "
+[master 97b6a2d]  I added the second file after deleting it
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Secondfile.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ touch Secondfile.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git add Secondfile.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git commit -m " I added the second file"
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 304 bytes | 152.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/NadineAbdelaziz/Nadine-Repo.git
+   75a0869..97b6a2d  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$
+
+Salma@Salma-PC MINGW64 ~
+$ cd ~/Desktop/
+
+Salma@Salma-PC MINGW64 ~/Desktop
+$ cd Nadine-Repo
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master|MERGING)
+$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+        modified:   Secondfile.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master|MERGING)
+$ git add README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master|MERGING)
+$ git push -u origin master
+To https://github.com/NadineAbdelaziz/Nadine-Repo.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/NadineAbdelaziz/Nadine-Repo.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master|MERGING)
+$ git fetch origin master
+From https://github.com/NadineAbdelaziz/Nadine-Repo
+ * branch            master     -> FETCH_HEAD
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master|MERGING)
+$ git merge origin master
+fatal: You have not concluded your merge (MERGE_HEAD exists).
+Please, commit your changes before you merge.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master|MERGING)
+$ git commit -m "I will add the project name to the read me file"
+[master 4f6ac9d] I will add the project name to the read me file
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git merge origin master
+Already up to date.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 575 bytes | 287.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/NadineAbdelaziz/Nadine-Repo.git
+   a6af63e..4f6ac9d  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ history
+    1  cd ~/Desktop/
+    2  git clone
+    3  cd ~/Desktop/
+    4  cd Nadine-Repo
+    5  git status
+    6  git remote add https://github.com/NadineAbdelaziz/Nadine-Repo.git
+    7  git remote
+    8  git push -u origin master
+    9  git remote add Nadine $ git add origin https://github.com/NadineAbdelaziz/Nadine-Repo.git
+   10  git remote
+   11  git push -u Nadine master
+   12  git remote add gitHubNadine https://github.com/NadineAbdelaziz/Nadine-Repo.git
+   13  git remote
+   14  git push -u gitHubNadine master
+   15  git push origin master
+   16  git fetch origin master
+   17  git merge origin master
+   18  git push -u origin master
+   19  git fetch origin master:tmp
+   20  git rebase tmp
+   21  git status
+   22  git commmit -m " Delete $README.md and $irdfile.md as they are mistakes"
+   23  git commit -m " Delete $README.md and $irdfile.md as they are mistakes"
+   24  git status
+   25  git push -u origin master
+   26  git rm Secondfile.md
+   27  git status
+   28  git commit -m "I deleted the second file which contains the section 3.1 Git Branching"
+   29  git fetch  origin master
+   30  git merge origin master
+   31  cd ~/Desktop/
+   32  cd Nadine-Repo
+   33  git fetch origin master:tmp
+   34  git rebase tmp
+   35  git status
+   36  git commit -m "I will delete the second file from the github"
+   37  git push -u origin master
+   38  git checkout Secondfile.md
+   39  git log
+   40  cd~/Desktop/
+   41  cd Nadine-Repo
+   42  git checkout 987e2e934c77b20b --Secodfile.md
+   43  touch Secodfile.md
+   44  ls
+   45  git status
+   46  git touch Secondfile.md
+   47  touch Secondfile.md
+   48  ls
+   49  git status
+   50  cd ~/Desktop/
+   51  cd Nadine-Repo
+   52  git staus
+   53  git status
+   54  touch Secondfile.md
+   55  ls
+   56  git status
+   57  git add.Secondfile.md
+   58  git add.Secondfile.md
+   59  git add Secondfile.md
+   60  git statua
+   61  git status
+   62  git push -u Secondfile.md
+   63  git push -u origin master
+   64  git fetch origin master
+   65  git merge origin master
+   66  git push -u origin master
+   67  git fetch origin master:tmp
+   68  git rebase tmp
+   69  git status
+   70  git add Secondfile.md
+   71  git status
+   72  git push -u origin master
+   73  touch Secondfile.md
+   74  git add Secondfile.md
+   75  git status
+   76  git push origin master
+   77  git fetch origin master
+   78  git merge origin master
+   79  git push -u origin master
+   80  git fetch origin master:tmp
+   81  git rebase tmp
+   82  git status
+   83  git commit -m " I added the second file after deleting it "
+   84  touch Secondfile.md
+   85  git add Secondfile.md
+   86  git commit -m " I added the second file"
+   87  git push -u origin master
+   88  touch
+   89  echo "Sprint 0" >> ~/.inputrc
+   90  echo "Sprint 0" >> ~/.README.md
+   91  echo "Sprint 0" >> README.md
+   92  git status
+   93  echo -e "\nSprint 0" >>  README.md
+   94  git status
+   95  git add README.md
+   96  git commit -m "I added Sprint 0 to the README file"
+   97  git push -u origin master
+   98  git fetch origin master
+   99  git merge origin master
+  100  cd ~/Desktop/
+  101  cd Nadine-Repo
+  102  git status
+  103  git add README.md
+  104  git push -u origin master
+  105  git fetch origin master
+  106  git merge origin master
+  107  git commit -m "I will add the project name to the read me file"
+  108  git merge origin master
+  109  git push -u origin master
+  110  history
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$
+
+Salma@Salma-PC MINGW64 ~
+$ cd ~/Desktop/
+
+Salma@Salma-PC MINGW64 ~/Desktop
+$ cd Nadine-Repo
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ echo "\nThe name of my repository is Nadine-Repo in which it contains three files ; first file, second file and thirdfile as well as a READMEfile. In each file we have a certain paragraph taken from the Progit book. \nIn the first file, it illustrates the Version Control. \nIn the second file it illustrates the branches and how it is used and its importance. \nThe third file which is the last one illustrates the distributed Workflows" >>README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ echo -e "nThe name of my repository is Nadine-Repo in which it contains three files ; first file, second file and thirdfile as well as a READMEfile. In each file we have a certain paragraph taken from the Progit book. \nIn the first file, it illustrates the Version Control. \nIn the second file it illustrates the branches and how it is used and its importance. \nThe third file which is the last one illustrates the distributed Workflows" >>Re
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ echo -e "nThe name of my repository is Nadine-Repo in which it contains three files ; first file, second file and thirdfile as well as a READMEfile. In each file we have a certain paragraph taken from the Progit book. \nIn the first file, it illustrates the Version Control. \nIn the second file it illustrates the branches and how it is used and its importance. \nThe third file which is the last one illustrates the distributed Workflows" >> README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ echo -e "\nNadine Abdelaziz  37-3720" >> README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ echo -e "\nBook Chacon, scott, and Ben straub. Pro Git. Apress, 2014" >>README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ push -u origin master
+bash: push: command not found
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git fetch origin master
+From https://github.com/NadineAbdelaziz/Nadine-Repo
+ * branch            master     -> FETCH_HEAD
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git merge origin master
+Already up to date.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+git fetch Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git fetch origin master
+From https://github.com/NadineAbdelaziz/Nadine-Repo
+ * branch            master     -> FETCH_HEAD
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git fetch origin master:tmp
+From https://github.com/NadineAbdelaziz/Nadine-Repo
+   75a0869..4f6ac9d  master     -> tmp
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git rebase tmp
+Cannot rebase: You have unstaged changes.
+Please commit or stash them.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git add README.md
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git commit -m " I added some text in the README file of what my repo is about, my name and id"
+[master b6df0d2]  I added some text in the README file of what my repo is about, my name and id
+ 1 file changed, 9 insertions(+)
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git pusg -u origin master
+git: 'pusg' is not a git command. See 'git --help'.
+
+The most similar command is
+        push
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 637 bytes | 318.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/NadineAbdelaziz/Nadine-Repo.git
+   4f6ac9d..b6df0d2  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$
+
+Salma@Salma-PC MINGW64 ~
+$ cd ~/Desktop/
+
+Salma@Salma-PC MINGW64 ~/Desktop
+$ cd Nadine-Repo
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ echo "\nThe name of my repository is Nadine-Repo in which it contains three files ; first file, second file and thirdfile as well as a READMEfile. In each file we have a certain paragraph taken from the Progit book. \nIn the first file, it illustrates the Version Control. \nIn the second file it illustrates the branches and how it is used and its importance. \nThe third file which is the last one illustrates the distributed Workflows" >>README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ echo -e "nThe name of my repository is Nadine-Repo in which it contains three files ; first file, second file and thirdfile as well as a READMEfile. In each file we have a certain paragraph taken from the Progit book. \nIn the first file, it illustrates the Version Control. \nIn the second file it illustrates the branches and how it is used and its importance. \nThe third file which is the last one illustrates the distributed Workflows" >>Re
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ echo -e "nThe name of my repository is Nadine-Repo in which it contains three files ; first file, second file and thirdfile as well as a READMEfile. In each file we have a certain paragraph taken from the Progit book. \nIn the first file, it illustrates the Version Control. \nIn the second file it illustrates the branches and how it is used and its importance. \nThe third file which is the last one illustrates the distributed Workflows" >> README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ echo -e "\nNadine Abdelaziz  37-3720" >> README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ echo -e "\nBook Chacon, scott, and Ben straub. Pro Git. Apress, 2014" >>README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ push -u origin master
+bash: push: command not found
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git fetch origin master
+From https://github.com/NadineAbdelaziz/Nadine-Repo
+ * branch            master     -> FETCH_HEAD
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git merge origin master
+Already up to date.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+git fetch Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git fetch origin master
+From https://github.com/NadineAbdelaziz/Nadine-Repo
+ * branch            master     -> FETCH_HEAD
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git fetch origin master:tmp
+From https://github.com/NadineAbdelaziz/Nadine-Repo
+   75a0869..4f6ac9d  master     -> tmp
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git rebase tmp
+Cannot rebase: You have unstaged changes.
+Please commit or stash them.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git add README.md
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git commit -m " I added some text in the README file of what my repo is about, my name and id"
+[master b6df0d2]  I added some text in the README file of what my repo is about, my name and id
+ 1 file changed, 9 insertions(+)
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git pusg -u origin master
+git: 'pusg' is not a git command. See 'git --help'.
+
+The most similar command is
+        push
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 637 bytes | 318.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/NadineAbdelaziz/Nadine-Repo.git
+   4f6ac9d..b6df0d2  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ ^C
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git branch ReadMe
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git checkout ReadMe
+Switched to branch 'ReadMe'
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ touch README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git status
+On branch ReadMe
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git add README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git commit -m" I added the README file to the ReadMe branch"
+On branch ReadMe
+Untracked files:
+        Backup of README.wbk
+
+nothing added to commit but untracked files present
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ touch README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git status
+On branch ReadMe
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git add README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git status
+On branch ReadMe
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git push -u origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git push -origin ReadMe
+fatal: 'ReadMe' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git branch ReadMe
+fatal: A branch named 'ReadMe' already exists.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git checkout ReadMe
+Already on 'ReadMe'
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git add README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git status
+On branch ReadMe
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$
+
+Salma@Salma-PC MINGW64 ~
+$ cd ~/Desktop/
+
+Salma@Salma-PC MINGW64 ~/Desktop
+$ cd Nadine-Repo
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git branch ReadMe
+fatal: A branch named 'ReadMe' already exists.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git checkout ReadMe
+Already on 'ReadMe'
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git add README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git status
+On branch ReadMe
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git init
+Reinitialized existing Git repository in C:/Users/Salma/Desktop/Nadine-Repo/.git/
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git add README.md
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git commit -m "I added the README file in the ReadMe branch"
+On branch ReadMe
+Untracked files:
+        Backup of README.wbk
+
+nothing added to commit but untracked files present
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git status
+On branch ReadMe
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git push -u origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git push -u origin ReadMe
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/NadineAbdelaziz/Nadine-Repo.git
+ * [new branch]      ReadMe -> ReadMe
+Branch 'ReadMe' set up to track remote branch 'ReadMe' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git merge ReadMe
+Already up to date.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git push -u origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git commit -m " After adding the README file in the ReadMe branch, i merged the master branch and the ReadMe branch with each other"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+        Backup of README.wbk
+
+nothing added to commit but untracked files present
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Backup of README.wbk
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
+$
 
