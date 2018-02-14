@@ -1640,6 +1640,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
 $
+<<<<<<< HEAD
 
 
 Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (master)
@@ -1695,3 +1696,5 @@ To https://github.com/NadineAbdelaziz/Nadine-Repo.git
 
 Salma@Salma-PC MINGW64 ~/Desktop/Nadine-Repo (ReadMe)
 $
+=======
+>>>>>>> 52ad104ae3dccd319517b39f32afe2695adadaef
