@@ -14,26 +14,37 @@ $ git add README test.rb LICENSE
 $ git commit -m 'initial commit of my project'
 When you create the commit by running git commit, Git checksums each subdirectory (in this case, just the root project directory) and stores those tree objects in the Git repository. Git then creates a commit object that has the metadata and a pointer to the root project tree so it can re-create that snapshot when needed.
 Your Git repository now contains five objects: one blob for the contents of each of your three files, one tree that lists the contents of the directory and specifies which file names are stored as which blobs, and one commit with the pointer to that root tree and all the commit metadata.
-43
-Chapter 3 ■ Git BranChinG
+
  Figure 3-1. 
- A commit and its tree
+ ![git1](https://user-images.githubusercontent.com/36333744/36318497-b9cc2e6a-1348-11e8-98d8-ffd5cbeb198d.png)
+
+
 If you make some changes and commit again, the next commit stores a pointer to the commit that came
 immediately before it.
  Figure 3-2. Commits and their parents
+ 
+![commits-and-parents2](https://user-images.githubusercontent.com/36333744/36318779-8b604cae-1349-11e8-996c-f45b7251771b.png)
+
 A branch in Git is simply a lightweight movable pointer to one of these commits. The default branch name in Git is master. As you start making commits, you’re given a master branch that points to the last commit you made. Every time you commit, it moves forward automatically.
-44
-Chapter 3 ■ Git BranChinG ■ Note the “master” branch in Git is not a special branch. it is exactly like any other branch. the only reason nearly
+
+Note the “master” branch in Git is not a special branch. it is exactly like any other branch. the only reason nearly
 every repository has one is that the git init command creates it by default and most people don’t bother to change it.
    Figure 3-3. A branch and its commit history Creating a New Branch
+   ![branch-and-history](https://user-images.githubusercontent.com/36333744/36319078-7ef0fd46-134a-11e8-8cc9-43aa6759e366.png)
+   
 What happens if you create a new branch? Well, doing so creates a new pointer for you to move around. Let’s say you create a new branch called testing. You do this with the git branch command:
 $ git branch testing
 This creates a new pointer at the same commit you’re currently on.
  Figure 3-4. Two branches pointing into the same series of commits
+ ![two-branches](https://user-images.githubusercontent.com/36333744/36319279-13cca8a2-134b-11e8-835e-cef221addfa5.png)
+
+ 
 How does Git know what branch you’re currently on? It keeps a special pointer called HEAD. Note that this is a lot different than the concept of HEAD in other VCSs you may be used to, such as Subversion or CVS. In Git, this is a pointer to the local branch you’re currently on. In this case, you’re still on master. The git branch command only created a new branch—it didn’t switch to that branch.
 45
-Chapter 3 ■ Git BranChinG
+
  Figure 3-5. HEAD pointing to a branch
+ ![head-to-master](https://user-images.githubusercontent.com/36333744/36319307-2a9de762-134b-11e8-8aa8-2dc711c0ca58.png)
+
 You can easily see this by running a simple git log command that shows you where the branch pointers are
 pointing. This option is called --decorate.
 $ git log --oneline --decorate
@@ -45,16 +56,21 @@ To switch to an existing branch, you run the git checkout command. Let’s switc
 This moves HEAD to point to the testing branch.
 46
 Figure 3-6. HEAD points to the current branch
+![head-to-testing](https://user-images.githubusercontent.com/36333744/36319332-45524e0e-134b-11e8-930e-b03c5ce47348.png)
+
 What is the significance of that? Well, let’s do another commit:
 $ vim test.rb
 $ git commit -a -m 'made a change'
 Figure 3-7. The HEAD branch moves forward when a commit is made
+![advance-testing](https://user-images.githubusercontent.com/36333744/36319352-56111018-134b-11e8-8092-1914b6d98f64.png)
+
 This is interesting, because now your testing branch has moved forward, but your master branch still points to
 the commit you were on when you ran git checkout to switch branches. Let’s switch back to the master branch: $ git checkout master
-Chapter 3 ■ Git BranChinG
-  47
-Chapter 3 ■ Git BranChinG
+
+
  Figure 3-8. HEAD moves when you checkout
+ ![checkout-master](https://user-images.githubusercontent.com/36333744/36319367-63ee56dc-134b-11e8-95c7-d552c5a8751f.png)
+
 That command did two things. It moved the HEAD pointer back to point to the master branch, and it reverted the files in your working directory to the snapshot that master points to. This also means the changes you make from this point forward will diverge from an older version of the project. It essentially rewinds the work you’ve done in your testing branch so you can go in a different direction.
 it’s important to note that when you switch branches in Git, files in your working directory will change. if you switch to an older branch, your working directory will be reverted to look like it did the last time you committed on that branch. if Git cannot do it cleanly, it will not let you switch at all.
 Let’s make a few changes and commit again:
@@ -62,8 +78,10 @@ $ vim test.rb
 $ git commit -a -m 'made other changes'
 Now your project history has diverged. You created and switched to a branch, did some work on it, and then switched back to your main branch and did other work. Both of those changes are isolated in separate branches: you can switch back and forth between the branches and merge them when you’re ready. And you did all that with simple branch, checkout, and commit commands.
  SWItChING BraNCheS ChaNGeS FILeS IN YOUr WOrKING DIreCtOrY
- 48
+
 Figure 3-9. Divergent history
+![advance-master](https://user-images.githubusercontent.com/36333744/36319397-7a5e81bc-134b-11e8-92fb-313053344e53.png)
+
 You can also see this easily with the git log command. If you run git log --oneline --decorate --graph --all it will print the history of your commits, showing where your branch pointers are and how your history has diverged.
 $ git log --oneline --decorate --graph --all
 * c2b9e (HEAD, master) made other changes
@@ -75,6 +93,3 @@ $ git log --oneline --decorate --graph --all
 Because a branch in Git is in actuality a simple file that contains the 40 character SHA-1 checksum of the commit it points to, branches are cheap to create and destroy. Creating a new branch is as quick and simple as writing 41 bytes to a file (40 characters and a newline).
 This is in sharp contrast to the way most older VCS tools branch, which involves copying all the project’s files into a second directory. This can take several seconds or even minutes, depending on the size of the project, whereas in Git the process is always instantaneous. Also, because we’re recording the parents when we commit, finding a proper merge base for merging is automatically done for us and is generally very easy to do. These features help encourage developers to create and use branches often.
 Let’s see why you should do so.
-Chapter 3 ■ Git BranChinG
-Chat conversation end
-Type a message...
